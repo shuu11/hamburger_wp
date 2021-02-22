@@ -2,7 +2,7 @@
 
 <p align="center">
   <br />
-  <img width="100" src="./dist/image/tailwind/logo.svg" alt="Tailwind CSS logo">
+  <img width="100" src="./image/tailwind/logo.svg" alt="Tailwind CSS logo">
   <br />
   <br />
 </p>
