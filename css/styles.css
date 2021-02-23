@@ -1053,7 +1053,7 @@ body.open {
 .p-sidebar {
   position: relative;
   padding-left: 12.5%;
-  height: 100%;
+  min-height: 2000px;
   width: 100%;
   text-align: left;
   color: #707070;

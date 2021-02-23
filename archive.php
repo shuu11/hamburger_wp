@@ -62,22 +62,8 @@
 					?>
         </div>
 
-        <div class="p-pagenation">
-          <span class="p-pagenation__num">page 1/10</span>
-          <span class="p-pagenation__pre"><a href="#">&#8810;<span>前へ</span></a></span>
-          <ul class="p-pagenation__list">
-            <li><a class="c-current" href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">6</a></li>
-            <li><a href="#">7</a></li>
-            <li><a href="#">8</a></li>
-            <li><a href="#">9</a></li>
-          </ul>
-          <span class="p-pagenation__next"><a href="#"><span>次へ</span>&#8811;</a></span>
-        </div>
+        <?php my_pagenation(3); ?>
+
       </article>
     </div>
 

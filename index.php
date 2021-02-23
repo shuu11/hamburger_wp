@@ -19,7 +19,7 @@
 
 
 				<div class="p-mv">
-					<h2 class="p-mv__ttl">ダミーサイト</h2>
+					<h2 class="p-mv__ttl"><?php bloginfo( 'description' ); ?></h2>
 				</div>
 
 				<article class="p-main">

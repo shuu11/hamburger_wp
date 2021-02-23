@@ -1,5 +1,5 @@
 <aside class="p-sidebar">
-  <h2 class="p-sidebar__ttl"><a href="#">Menu</a></h2>
+  <h2 class="p-sidebar__ttl">Menu</h2>
   <div class="p-sidebar__btn c-side-btn">
     <span></span>
     <span></span>
