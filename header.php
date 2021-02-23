@@ -9,6 +9,4 @@
 <!-- Internet Explorer用の設定 -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-<title>front-page</title>
-
 <?php wp_head(); ?>

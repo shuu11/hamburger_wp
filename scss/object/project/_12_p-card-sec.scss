@@ -61,14 +61,15 @@
 			padding: 5.3rem 3.4rem 6rem 3.3rem;
 		}
 
-		h2 {
+		span {
+			display: block;
 			font-size: clamp(2rem, calc(2rem + 1vw), 3.6rem);
 			font-weight: bold;
 
 			text-align: left;
 		}
 
-		h3 {
+		h2 {
 			margin-top: 25px;
 
 			font-size: clamp(1.6rem, calc(1.6rem + 1vw), 2.4rem);

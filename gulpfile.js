@@ -13,8 +13,7 @@ const autoprefixer = require("autoprefixer");
 const loadPlugins = require('gulp-load-plugins');
 const $ = loadPlugins();                            //  postcss,purgecss,imagemin,plumber,sass,sass-glob,connect-php,notify,rename,clean-css,uglify
 
-const target = 'wp-content/themes/pro';
-const path = `C:/Users/shuuk/Local Sites/hamburger/app/public/${target}`;
+const path = `../pro`;
 
 //  copy
 const copy = {
@@ -57,7 +56,7 @@ const minify = {
   },
 
   fontawesome:{
-    src:'./vender/fontawesome/css/fontawesome.css',
+    src:'./vender/fontawesome/css/all.min.css',
     content:['./*.php','./includes/*.php','./js/**/*.js'],
     dest:`${path}/vender/fontawesome/css`,
   },
@@ -92,7 +91,7 @@ const watchSrc = ['./**','!./css/**'];
 //  sass
 const sass = {
   src:'./scss/**/*.scss',
-  dest:`${path}/css/`,
+  dest:`./css/`,
 };
 
 //  browser-sync
@@ -142,10 +141,10 @@ gulp.task('minify', function (done) {
       .pipe(gulp.dest(minify.fontawesome.dest));
 
   gulp.src(minify.swiper.src)
-  .pipe($.plumber())
-  .pipe($.purgecss({content: minify.swiper.content}))
-  .pipe($.cleanCss())
-  .pipe(gulp.dest(minify.swiper.dest));
+      .pipe($.plumber())
+      .pipe($.purgecss({content: minify.swiper.content}))
+      .pipe($.cleanCss())
+      .pipe(gulp.dest(minify.swiper.dest));
 
   gulp.src(minify.tailwind.src)
       .pipe($.plumber())

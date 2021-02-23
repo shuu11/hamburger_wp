@@ -725,20 +725,21 @@ body.open {
     @media (min-width: 961px) {
       .p-card-sec__figcaption {
         padding: 5.3rem 3.4rem 6rem 3.3rem; } }
-    .p-card-sec__figcaption h2 {
+    .p-card-sec__figcaption span {
+      display: block;
       font-size: clamp(2rem, calc(2rem + 1vw), 3.6rem);
       font-weight: bold;
       text-align: left; }
-    .p-card-sec__figcaption h3 {
+    .p-card-sec__figcaption h2 {
       margin-top: 25px;
       font-size: clamp(1.6rem, calc(1.6rem + 1vw), 2.4rem);
       font-weight: bold;
       text-align: left; }
       @media (min-width: 641px) {
-        .p-card-sec__figcaption h3 {
+        .p-card-sec__figcaption h2 {
           margin-top: 50px; } }
       @media (min-width: 961px) {
-        .p-card-sec__figcaption h3 {
+        .p-card-sec__figcaption h2 {
           margin-top: 25px; } }
     .p-card-sec__figcaption p {
       margin-top: 11px;

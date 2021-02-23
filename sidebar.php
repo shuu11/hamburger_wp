@@ -6,36 +6,43 @@
   </div>
 
   <nav class="p-sidebar__menu">
-    <h3 class="p-sidebar__menu--ttl"><a href="#">バーガー</a></h3>
 
-    <ul class="p-sidebar__menu--item">
-      <li><a href="#">ハンバーガー</a></li>
-      <li><a href="#">チーズバーガー</a></li>
-      <li><a href="#">テリヤキバーガー</a></li>
-      <li><a href="#">アボカドバーガー</a></li>
-      <li><a href="#">フィッシュバーガー</a></li>
-      <li><a href="#">ベーコンバーガー</a></li>
-      <li><a href="#">チキンバーガー</a></li>
-    </ul>
+    <?php
+    $menu_name = 'categorymenu';
+    $locations = get_nav_menu_locations();
 
-    <h3 class="p-sidebar__menu--ttl"><a href="#">サイド</a></h3>
+    if( ($locations != false) && isset($locations[$menu_name]) ) {
+        $menu = wp_get_nav_menu_object($locations[$menu_name]);
 
-    <ul class="p-sidebar__menu--item">
-      <li><a href="#">ポテト</a></li>
-      <li><a href="#">サラダ</a></li>
-      <li><a href="#">ナゲット</a></li>
-      <li><a href="#">コーン</a></li>
-    </ul>
+        $menu_items = wp_get_nav_menu_items($menu->term_id);
 
-    <h3 class="p-sidebar__menu--ttl"><a href="#">ドリンク</a></h3>
+        $cnt = 0;
+        $ul = true;
 
-    <ul class="p-sidebar__menu--item">
-      <li><a href="#">コーラ</a></li>
-      <li><a href="#">ファンタ</a></li>
-      <li><a href="#">オレンジ</a></li>
-      <li><a href="#">アップル</a></li>
-      <li><a href="#">紅茶（Ice/Hot）</a></li>
-      <li><a href="#">コーヒー（Ice/Hot）</a></li>
-    </ul>
+        foreach($menu_items as $item){
+          if(!$item->menu_item_parent){
+            $parent_id = $item->ID;
+            echo '<h3 class="p-sidebar__menu--ttl"><a href="' . $item->url . '">' . $item->title . '</a></h3>';
+          }
+
+          if($parent_id == $item->menu_item_parent){
+            if($ul == true){
+              $ul = false;
+              echo '<ul class="p-sidebar__menu--item">';
+            }
+
+            echo '<li><a href="' . $item->url . '">' . $item->title . '</a></li>';
+
+            if(($menu_items[$cnt + 1]->menu_item_parent != $parent_id)
+            && ($ul == false)){
+              echo '</ul>';
+              $ul = true;
+            }
+          }
+
+          $cnt++;
+        }
+    }
+    ?>
   </nav>
 </aside>
