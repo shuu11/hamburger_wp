@@ -1,4 +1,5 @@
 <?php
+
 add_action('init',function(){
   add_theme_support('title-tag');
   add_theme_support('post-thumbnails');
@@ -20,9 +21,9 @@ if ( ! isset( $content_width ) ) {
  //タイトル出力
 function my_title($title) {
   if ( is_front_page() && is_home() ) {               //トップページなら
-      $title = get_bloginfo( 'name', 'display' );
-  } elseif ( is_singular() ) {                        //シングルページなら
-      $title = single_post_title( '', false );
+    $title = get_bloginfo( 'name', 'display' );
+  } elseif ( is_singular()) {                        //シングルページなら
+    $title = single_post_title( '', false );
   }
 
   return $title;
@@ -46,10 +47,15 @@ function widgets_init() {
 add_action( 'widgets_init', 'widgets_init' );
 
 //  サムネイル取得
-function my_get_thumbnail(){
+function my_get_thumbnail($sts = false){
   if(has_post_thumbnail()){
     $id = get_post_thumbnail_id();
     $img = wp_get_attachment_image_src($id , 'large');
+  }
+  else{
+    if($sts == true){
+      $img = array(get_template_directory_uri() . '/image/card_archive@2x.jpg');
+    }
   }
 
   return $img[0];

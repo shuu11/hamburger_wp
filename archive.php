@@ -43,7 +43,7 @@
               <section>
                 <figure class="p-card-sec">
                   <img class="p-card-sec__img"
-                    src="<?php echo my_get_thumbnail(); ?>" alt="card" />
+                    src="<?php echo my_get_thumbnail(false); ?>" alt="card" />
                   <figcaption class="p-card-sec__figcaption">
                     <span><?php the_title(); ?></span>
 

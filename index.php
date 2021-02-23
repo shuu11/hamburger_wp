@@ -26,7 +26,7 @@
 					<div class="p-main__inner">
 						<div class="p-sec">
 							<section class="p-sec01">
-								<h2 class="c-ttl_under"><a href="<?php echo get_permalink(); ?>">Take Out</a></h2>
+								<h2 class="c-ttl_under"><a href="<?php echo get_category_link(get_cat_ID('Take Out')); ?>">Take Out</a></h2>
 
 								<div class="p-sec01__wrapper">
 									<div class="p-sec01__contents">
@@ -47,7 +47,7 @@
 								</div>
 							</section>
 							<section class="p-sec02">
-								<h2 class="c-ttl_under"><a href="<?php echo get_permalink(); ?>">Eat In</a></h2>
+								<h2 class="c-ttl_under"><a href="<?php echo get_category_link(get_cat_ID('Eat In')); ?>">Eat In</a></h2>
 
 								<div class="p-sec02__wrapper">
 									<div class="p-sec02__contents">

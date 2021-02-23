@@ -21,7 +21,7 @@
 					<?php get_template_part('./includes/header'); ?>
 				</header>
 
-				<div class="p-mv" style="background-image:url('<?php echo my_get_thumbnail(); ?>');">
+				<div class="p-mv" style="background-image:url('<?php echo my_get_thumbnail(false); ?>');">
 					<div class="c-mask__mv"></div>
 					<h1 class="p-mv__ttl"><?php the_title(); ?></h1>
 				</div>

@@ -316,16 +316,10 @@ body.open {
 .c-ttl_under {
   font-family: "Roboto", sans-serif;
   font-weight: bold;
-  font-size: 4.1rem;
+  font-size: clamp(4.1rem, calc(4.1rem + 2vw), 8rem);
   white-space: nowrap;
   text-align: left;
   color: #fff; }
-  @media (min-width: 641px) {
-    .c-ttl_under {
-      font-size: 4.4rem; } }
-  @media (min-width: 961px) {
-    .c-ttl_under {
-      font-size: 8rem; } }
   .c-ttl_under::after {
     content: "";
     display: none;
@@ -1065,6 +1059,7 @@ body.open {
     position: absolute;
     top: 82px;
     font-family: "Roboto", sans-serif;
+    color: #707070;
     font-size: 2.4rem;
     font-weight: bold; }
     @media (min-width: 961px) {
