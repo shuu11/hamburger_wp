@@ -214,7 +214,7 @@ gulp.task('bs-reload',function(done){
 //----------------------------------------------------------------------
 //  watch
 gulp.task('dev:watch', function (done) {
-	gulp.watch(watchSrc, gulp.series(parallel('sass'),'copy','bs-reload'));
+	gulp.watch(watchSrc, gulp.series(parallel('sass'),'bs-reload'));
 });
 
 gulp.task('pro:watch', function (done) {
