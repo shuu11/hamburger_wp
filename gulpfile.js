@@ -8,42 +8,43 @@
 //----------------------------------------------------------------------
 const gulp = require('gulp');
 const { series ,parallel } = require('gulp');
+const del = require('del');
 const browserSync = require('browser-sync');
 const autoprefixer = require("autoprefixer");
 const loadPlugins = require('gulp-load-plugins');
 const $ = loadPlugins();                            //  postcss,purgecss,imagemin,plumber,sass,sass-glob,connect-php,notify,rename,clean-css,uglify
 
-const path = `../pro`;
+//  release
+const release = {
+  src:'./build/**',
+  dest:'../release',
+};
+
+//  clean
+const clean = {
+  src:['./build/**','!./build'],
+};
 
 //  copy
 const copy = {
   src:[
-      './**','!./scss/**','!./node_modules/**','!./.gitignore',
+      './**',
+      '!./build/**','!./node_modules/**','!./scss/**','!./.gitignore',
       '!./gulpfile.js','!./package-lock.json','!./package.json',
   ],
-  dest:`${path}`,
+  dest:'./build',
 };
 
 //  dest
 const dest = {
-  php:{
-    src:'./*.php',
-    dest:`${path}`,
+  same:{
+    src:['./*.php','./*.txt','./*.jpg','./*.css'],
+    dest:'./build',
   },
 
   includes:{
     src:'./includes/**/*.php',
-    dest:`${path}/includes`,
-  },
-
-  css:{
-    src:'./*.css',
-    dest:`${path}`,
-  },
-
-  wpcss:{
-    src:'./css/wp-style.css',
-    dest:`${path}/css`,
+    dest:'./build/includes',
   },
 };
 
@@ -52,41 +53,41 @@ const minify = {
   css:{
     src:'./css/styles.css',
     content:['./*.php','./includes/*.php','./js/**/*.js'],
-    dest:`${path}/css`,
+    dest:'./build/css',
   },
 
   fontawesome:{
     src:'./vender/fontawesome/css/all.min.css',
     content:['./*.php','./includes/*.php','./js/**/*.js'],
-    dest:`${path}/vender/fontawesome/css`,
+    dest:'./build/vender/fontawesome/css',
   },
 
   swiper:{
     src:'./vender/swiper/css/swiper-bundle.min.css',
     content:['./*.php','./includes/*.php','./js/**/*.js'],
-    dest:`${path}/vender/swiper/css`,
+    dest:'./build/vender/swiper/css',
   },
 
   tailwind:{
     src:'./vender/tailwind/css/tailwind.css',
     content:['./*.php','./includes/*.php','./js/**/*.js'],
-    dest:`${path}/vender/tailwind/css`,
+    dest:'./build/vender/tailwind/css',
   },
 
   js:{
     src:'./js/**',
-    dest:`${path}/js`,
+    dest:'./build/js',
   },
 };
 
 //  imagemin
 const imagemin = {
   src:'./image/**/*.{png,jpg,JPG,gif,svg}',
-  dest:`${path}/image`,
+  dest:'./build/image',
 };
 
 //  watch
-const watchSrc = ['./**','!./css/**'];
+const watchSrc = ['./**','!./build/**','!./css/**'];
 
 //  sass
 const sass = {
@@ -103,6 +104,19 @@ const bs = {
 //----------------------------------------------------------------------
 //  task処理
 //----------------------------------------------------------------------
+//  release
+gulp.task('release', function (done) {
+  gulp.src(release.src)
+      .pipe(gulp.dest(release.dest));
+  done();
+});
+
+//  clean
+gulp.task('clean', function (done) {
+  del(clean.src);
+  done();
+});
+
 //  copy
 gulp.task('copy', function (done) {
   gulp.src(copy.src)
@@ -112,17 +126,11 @@ gulp.task('copy', function (done) {
 
 //  dest
 gulp.task('dest', function (done) {
-  gulp.src(dest.php.src)
-      .pipe(gulp.dest(dest.php.dest));
+  gulp.src(dest.same.src)
+      .pipe(gulp.dest(dest.same.dest));
 
   gulp.src(dest.includes.src)
       .pipe(gulp.dest(dest.includes.dest));
-
-  gulp.src(dest.css.src)
-      .pipe(gulp.dest(dest.css.dest));
-
-  gulp.src(dest.wpcss.src)
-      .pipe(gulp.dest(dest.wpcss.dest));
   done();
 });
 
@@ -216,9 +224,11 @@ gulp.task('pro:watch', function (done) {
 //----------------------------------------------------------------------
 //  default処理
 //----------------------------------------------------------------------
-gulp.task('start', gulp.series('copy'));
+gulp.task('start', gulp.series('clean','copy'));
 
-gulp.task('dev:default', gulp.series(parallel('browser-sync','sass'),'copy','bs-reload','dev:watch'));
+gulp.task('release', gulp.series('release'));
+
+gulp.task('dev:default', gulp.series(parallel('browser-sync','sass'),'bs-reload','dev:watch'));
 
 gulp.task('pro:default', gulp.series(parallel('imagemin','browser-sync','dest','sass'),'minify','bs-reload','pro:watch'));
 

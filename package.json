@@ -8,6 +8,7 @@
     "dev": "npx tailwindcss-cli@latest build ./src/vender/tailwind/import/import.css -o ./src/vender/tailwind/css/tailwind.css",
     "pro": "cross-env NODE_ENV=production npx tailwindcss-cli@latest build ./src/vender/tailwind/import/import.css -o ./dist/vender/tailwind/css/tailwind.css",
     "start": "npx gulp start",
+    "release": "npx gulp release",
     "dev:def": "npx gulp dev:default",
     "pro:def": "npx gulp pro:default"
   },
@@ -20,6 +21,7 @@
   "devDependencies": {
     "autoprefixer": "^10.2.4",
     "browser-sync": "^2.26.14",
+    "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-connect-php": "^1.0.3",
