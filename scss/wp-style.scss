@@ -11,9 +11,8 @@
 
 //  foundation
 @import "./foundation/00-variable";
-@import "./foundation/01-font";
-@import "./foundation/02-breakpoint";
-@import "./foundation/99-debug";
+@import "./foundation/**";
+
 
 //----------------------------------------------------------------------
 //  変数宣言

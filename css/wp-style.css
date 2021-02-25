@@ -70,6 +70,9 @@ select {
 /************************************************************************/
 /*  END OF FILE                                       									*/
 /************************************************************************/
+/************************************************************************/
+/*  END OF FILE                                       									*/
+/************************************************************************/
 @font-face {
   font-family: "mplus-1m";
   src: url("../../font/mplus-1m-bold.ttf") format("truetype"), url("../../font/mplus-1m-regular.ttf") format("truetype"); }
@@ -77,6 +80,78 @@ select {
 /************************************************************************/
 /*  END OF FILE                                       									*/
 /************************************************************************/
+/************************************************************************/
+/*  END OF FILE                                       									*/
+/************************************************************************/
+html {
+  font-size: 62.5%; }
+
+html:focus-within {
+  scroll-behavior: smooth; }
+
+body {
+  font-family: "mplus-1m", "Roboto", sans-serif;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #707070;
+  background-color: #fffdfa; }
+
+h4,
+h5,
+h6 {
+  margin: 0; }
+
+ol {
+  margin: 0;
+  -webkit-padding-start: 0px;
+  padding-inline-start: 0px; }
+
+ul {
+  margin: 0;
+  list-style: none;
+  -webkit-padding-start: 0px;
+  padding-inline-start: 0px; }
+
+li {
+  width: 100%; }
+
+img {
+  vertical-align: bottom; }
+
+a {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: all 0.25s;
+  transition: all 0.25s; }
+  a:hover {
+    opacity: 0.7; }
+
+table {
+  border-collapse: collapse; }
+
+button,
+label,
+input,
+textarea {
+  background-color: transparent;
+  border: none;
+  outline: none; }
+
+button {
+  cursor: pointer;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; }
+
+textarea {
+  resize: none; }
+
+body.open {
+  overflow: hidden; }
+
 /************************************************************************/
 /*  END OF FILE                                       									*/
 /************************************************************************/
