@@ -6,7 +6,7 @@ add_action('init',function(){
   add_theme_support('automatic-feed-links');
   add_theme_support('custom-header');
   add_theme_support('custom-background');
-  add_editor_style('./css/editor-style.css');
+  add_theme_support("editor-styles");
 
   register_nav_menus( array(
     'categorymenu' => 'カテゴリーメニュー',
@@ -18,17 +18,11 @@ if ( ! isset( $content_width ) ) {
   $content_width = 1920;
 }
 
- //タイトル出力
-function my_title($title) {
-  if ( is_front_page() && is_home() ) {               //トップページなら
-    $title = get_bloginfo( 'name', 'display' );
-  } elseif ( is_singular()) {                        //シングルページなら
-    $title = single_post_title( '', false );
-  }
-
-  return $title;
+//  editor style
+function editor_style() {
+  add_editor_style( get_template_directory_uri() . "/css/editor-style.css");
 }
-add_filter( 'pre_get_document_title', 'my_title' );
+add_action( 'admin_init', 'editor_style' );
 
 //  ウィジェット有効
 function widgets_init() {
@@ -45,6 +39,18 @@ function widgets_init() {
   );
 }
 add_action( 'widgets_init', 'widgets_init' );
+
+ // タイトル出力
+function my_title($title) {
+  if ( is_front_page() && is_home() ) {
+    $title = get_bloginfo( 'name', 'display' );
+  } elseif ( is_singular()) {
+    $title = single_post_title( '', false );
+  }
+
+  return $title;
+}
+add_filter( 'pre_get_document_title', 'my_title' );
 
 //  サムネイル取得
 function my_get_thumbnail($sts = false){
@@ -114,8 +120,8 @@ function my_script() {
   wp_enqueue_style('tailwind', get_template_directory_uri() . "/vender/tailwind/css/tailwind.css", array());
   wp_enqueue_style('google-fonts', "//fonts.gstatic.com", array());
   wp_enqueue_style('font-roboto', "//fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap", array());
-  wp_enqueue_style('wp-style', get_template_directory_uri() . '/css/wp-style.css', array(), '1.0.0');
   wp_enqueue_style('style', get_template_directory_uri() . '/css/styles.css', array(), '1.0.0');
+  wp_enqueue_style('wp-style', get_template_directory_uri() . '/css/wp-style.css', array(), '1.0.0');
 
   wp_enqueue_script('scrollreveal', get_template_directory_uri() . '/vender/scrollreveal/js/scrollreveal.min.js', array(), '4.0.7', true);
   wp_enqueue_script('scrollreveal', get_template_directory_uri() . '/vender/swiper/js/swiper-bundle.min.js', array(), '6.0.4', true);

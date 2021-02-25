@@ -28,9 +28,7 @@
 
 				<article class="p-main">
 					<div class="p-main__inner">
-						<div class="p-main__top">
-							<?php the_content(); ?>
-						</div>
+						<?php the_content(); ?>
 					</div>
 				</article>
 				<?php

@@ -37,14 +37,9 @@ const copy = {
 
 //  dest
 const dest = {
-  same:{
-    src:['./*.php','./*.txt','./*.jpg','./*.css'],
-    dest:'./build',
-  },
-
-  includes:{
-    src:'./includes/**/*.php',
-    dest:'./build/includes',
+  css:{
+    src:['./css/**/*.css','!./css/styles.css'],
+    dest:'./build/css',
   },
 };
 
@@ -126,11 +121,8 @@ gulp.task('copy', function (done) {
 
 //  dest
 gulp.task('dest', function (done) {
-  gulp.src(dest.same.src)
-      .pipe(gulp.dest(dest.same.dest));
-
-  gulp.src(dest.includes.src)
-      .pipe(gulp.dest(dest.includes.dest));
+  gulp.src(dest.css.src)
+      .pipe(gulp.dest(dest.css.dest));
   done();
 });
 
