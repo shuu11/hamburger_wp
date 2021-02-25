@@ -5,7 +5,7 @@
     <h2 class="p-header__inner--ttl"><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h2>
   <?php endif; ?>
 
-  <form id="searchform" class="p-search" method="get" action="<?php echo home_url('/'); ?>">
+  <form id="searchform" class="p-search" method="get" action="<?php echo esc_url(home_url('/')); ?>">
     <?php get_search_form(); ?>
   </form>
 </div>

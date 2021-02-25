@@ -31,7 +31,7 @@
 						if(have_posts()):
 							while( have_posts() ): the_post();
 						?>
-								<section>
+								<section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 									<figure class="p-card-sec">
 										<img class="p-card-sec__img" src="<?php echo my_get_thumbnail(true); ?>" width="677px" height="471px" alt="card" />
 										<figcaption class="p-card-sec__figcaption">

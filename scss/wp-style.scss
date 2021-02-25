@@ -25,7 +25,11 @@
 //----------------------------------------------------------------------
 //  Sass記述
 //----------------------------------------------------------------------
-.p-main__inner {
+.wp-caption,.wp-caption-text,.sticky,.gallery-caption,.bypostauthor,.alignright,.alignleft,.aligncenter.screen-reader-text{
+  margin: 0;
+}
+
+.single .p-main__inner {
 	> * {
 		margin-top: 28px;
 	}
@@ -35,10 +39,12 @@
 	}
 
 	p {
+    text-align: left;
 		line-height: 1.3125;
 	}
 
 	h2 {
+    text-align: left;
 		font-size: clamp(2.8rem, calc(2.8rem + 1vw), 3.6rem);
 	}
 
@@ -46,6 +52,7 @@
 	h4,
 	h5,
 	h6 {
+    text-align: left;
 		margin-top: 30px;
 
 		font-size: 2rem;
