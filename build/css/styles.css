@@ -516,38 +516,39 @@ body.open {
 /************************************************************************/
 /*  END OF FILE                                       									*/
 /************************************************************************/
-.p-main__inner {
-  padding: 20px; }
-  @media (min-width: 641px) {
-    .p-main__inner {
-      padding: 7.7% 7.2%; } }
-
-.p-main__top {
-  color: #3c2a10; }
-  .p-main__top h2 {
-    font-size: clamp(2.8rem, calc(2.8rem + 1vw), 3.6rem);
-    font-weight: bold;
-    text-align: left; }
-  .p-main__top p {
-    margin-top: 28px;
-    line-height: 1.3125;
-    text-align: left; }
-  .p-main__top h3,
-  .p-main__top h4,
-  .p-main__top h5,
-  .p-main__top h6 {
-    margin-top: 30px;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: left; }
+.p-main {
+  min-height: 2000px; }
+  .p-main__inner {
+    padding: 20px; }
     @media (min-width: 641px) {
-      .p-main__top h3,
-      .p-main__top h4,
-      .p-main__top h5,
-      .p-main__top h6 {
-        margin-top: 60px; } }
-  .p-main__top h3:first-of-type {
-    font-size: clamp(2.4rem, calc(2.4rem + 1vw), 2.8rem); }
+      .p-main__inner {
+        padding: 7.7% 7.2%; } }
+  .p-main__top {
+    color: #3c2a10; }
+    .p-main__top h2 {
+      font-size: clamp(2.8rem, calc(2.8rem + 1vw), 3.6rem);
+      font-weight: bold;
+      text-align: left; }
+    .p-main__top p {
+      margin-top: 28px;
+      line-height: 1.3125;
+      text-align: left; }
+    .p-main__top h3,
+    .p-main__top h4,
+    .p-main__top h5,
+    .p-main__top h6 {
+      margin-top: 30px;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: left; }
+      @media (min-width: 641px) {
+        .p-main__top h3,
+        .p-main__top h4,
+        .p-main__top h5,
+        .p-main__top h6 {
+          margin-top: 60px; } }
+    .p-main__top h3:first-of-type {
+      font-size: clamp(2.4rem, calc(2.4rem + 1vw), 2.8rem); }
 
 .archive .p-main,
 .archive-search .p-main {
@@ -1047,7 +1048,7 @@ body.open {
 .p-sidebar {
   position: relative;
   padding-left: 12.5%;
-  min-height: 2000px;
+  height: 100%;
   width: 100%;
   text-align: left;
   color: #707070;
