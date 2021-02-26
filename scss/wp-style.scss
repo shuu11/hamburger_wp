@@ -13,7 +13,6 @@
 @import "./foundation/00-variable";
 @import "./foundation/**";
 
-
 //----------------------------------------------------------------------
 //  変数宣言
 //----------------------------------------------------------------------
@@ -25,8 +24,15 @@
 //----------------------------------------------------------------------
 //  Sass記述
 //----------------------------------------------------------------------
-.wp-caption,.wp-caption-text,.sticky,.gallery-caption,.bypostauthor,.alignright,.alignleft,.aligncenter.screen-reader-text{
-  margin: 0;
+.wp-caption,
+.wp-caption-text,
+.sticky,
+.gallery-caption,
+.bypostauthor,
+.alignright,
+.alignleft,
+.aligncenter.screen-reader-text {
+	margin: 0;
 }
 
 .single .p-main__inner {
@@ -39,12 +45,12 @@
 	}
 
 	p {
-    text-align: left;
+		text-align: left;
 		line-height: 1.3125;
 	}
 
 	h2 {
-    text-align: left;
+		text-align: left;
 		font-size: clamp(2.8rem, calc(2.8rem + 1vw), 3.6rem);
 	}
 
@@ -52,12 +58,29 @@
 	h4,
 	h5,
 	h6 {
-    text-align: left;
+		text-align: left;
 		margin-top: 30px;
 
 		font-size: 2rem;
 
 		@include breakpoint(sm) {
+			margin-top: 60px;
+		}
+	}
+
+	.wp-block-quote {
+		padding: 3.7%;
+
+		text-align: left;
+		background-color: $bgc-gray;
+
+		font-size: 1.6rem;
+		line-height: 1.3125;
+
+		border-left: 3px solid black;
+
+		cite {
+			display: block;
 			margin-top: 60px;
 		}
 	}

@@ -183,7 +183,14 @@ body.open {
 /************************************************************************/
 /*  END OF FILE                                       									*/
 /************************************************************************/
-.wp-caption, .wp-caption-text, .sticky, .gallery-caption, .bypostauthor, .alignright, .alignleft, .aligncenter.screen-reader-text {
+.wp-caption,
+.wp-caption-text,
+.sticky,
+.gallery-caption,
+.bypostauthor,
+.alignright,
+.alignleft,
+.aligncenter.screen-reader-text {
   margin: 0; }
 
 .single .p-main__inner > * {
@@ -213,6 +220,17 @@ body.open {
     .single .p-main__inner h5,
     .single .p-main__inner h6 {
       margin-top: 60px; } }
+
+.single .p-main__inner .wp-block-quote {
+  padding: 3.7%;
+  text-align: left;
+  background-color: #f5f5f5;
+  font-size: 1.6rem;
+  line-height: 1.3125;
+  border-left: 3px solid black; }
+  .single .p-main__inner .wp-block-quote cite {
+    display: block;
+    margin-top: 60px; }
 
 .single .p-main__inner img {
   width: 100%;
